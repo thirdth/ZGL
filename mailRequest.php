@@ -1,4 +1,5 @@
 <?php
+/* Template Name: mailRequest */
 $fName = $_POST['fname'];
 $lName = $_POST['lName'];
 $busName = $_POST['busName'];
