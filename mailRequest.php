@@ -1,6 +1,6 @@
 <?php
 /* Template Name: mailRequest */
-$fName = $_POST['fname'];
+$fName = $_POST['fName'];
 $lName = $_POST['lName'];
 $busName = $_POST['busName'];
 $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -13,9 +13,6 @@ $to = 'zack@zackglaserlegal.com';
 $subject = 'Zack Glaser Legal Request';
 $message = "Name: " . $fName . " " . $lName . "\r\n Business: " . $busName . "\r\n Street: " . $street . "\r\n City, ST, Zip: " . $city . ", " . $state . ", " . $zip . "\r\n Comments: " . $comments;
 
-
-echo $fName . ", " . $lName . ", " . $busName . ", " . $email;
-/*
 if (mail ($to , $subject , $message, $from, '-fzack@zackglaserlegal.com')) {
           echo "<div class='col-md-12 text-center'>
                   <h3>Your message has been sent. </h3>
@@ -28,4 +25,3 @@ if (mail ($to , $subject , $message, $from, '-fzack@zackglaserlegal.com')) {
         echo '</pre>';
 
  ?>
- */
