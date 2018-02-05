@@ -8,10 +8,10 @@ $street = $_POST['street'];
 $city = $_POST['city'];
 $state = $_POST['state'];
 $zip = $_POST['zip'];
-$comment = filter_var($_POST['comment'], FILTER_UNSAFE_RAW, FILTER_FLAG_HIGH);
+$comments = filter_var($_POST['comments'], FILTER_UNSAFE_RAW, FILTER_FLAG_HIGH);
 $to = 'zack@zackglaserlegal.com';
 $subject = 'Zack Glaser Legal Request';
-$message = "Name: " . $fName . " " . $lName . "\r\n Business: " . $busName . "\r\n Street: " . $street . "\r\n City, ST, Zip: " . $city . ", " . $state . ", " . $zip . "\r\n Comment: " . $comment;
+$message = "Name: " . $fName . " " . $lName . "\r\n Business: " . $busName . "\r\n Street: " . $street . "\r\n City, ST, Zip: " . $city . ", " . $state . ", " . $zip . "\r\n Comments: " . $comments;
 if (mail ($to , $subject , $message, $from, '-fzack@zackglaserlegal.com')) {
           echo "<div class='col-md-12 text-center'>
                   <h3>Your message has been sent. </h3>
