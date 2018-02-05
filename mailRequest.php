@@ -8,9 +8,10 @@ $street = $_POST['street'];
 $city = $_POST['city'];
 $state = $_POST['state'];
 $zip = $_POST['zip'];
-$comments = filter_var($_POST['comments'], FILTER_UNSAFE_RAW, FILTER_FLAG_HIGH);
+$comments = filter_var($_POST['comments'], FILTER_UNSAFE_RAW, 'FILTER_FLAG_HIGH');
 $to = 'zack@zackglaserlegal.com';
 $subject = 'Zack Glaser Legal Request';
+$from = $email;
 $message = "Name: " . $fName . " " . $lName . "\r\n Business: " . $busName . "\r\n Street: " . $street . "\r\n City, ST, Zip: " . $city . ", " . $state . ", " . $zip . "\r\n Comments: " . $comments;
 
 if (mail ($to , $subject , $message, $from, '-fzack@zackglaserlegal.com')) {
@@ -20,8 +21,5 @@ if (mail ($to , $subject , $message, $from, '-fzack@zackglaserlegal.com')) {
         } else {
           echo "<div class='col-md-12 text-center'>Something went wrong. Please send your request again. If you continue to have trouble, please contact our office directly.</div>";
         };
-        echo '<pre>';
-        print_r($debug_array);
-        echo '</pre>';
 
  ?>
