@@ -16,7 +16,7 @@ $message = "Name: " . $fName . " " . $lName . "\r\n Business: " . $busName . "\r
 
 if (mail ($to , $subject , $message, $from, '-fzack@zackglaserlegal.com')) {
           echo "<div class='col-md-12 text-center'>
-                  <h3>Your message has been sent. </h3>
+                  <h3>Thank you for your interest. Your request was sent successfully. Our office will contact you shortly to set-up a consultation.</h3>
                    </div>";
         } else {
           echo "<div class='col-md-12 text-center'>Something went wrong. Please send your request again. If you continue to have trouble, please contact our office directly.</div>";
