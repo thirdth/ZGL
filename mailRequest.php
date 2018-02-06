@@ -1,5 +1,6 @@
 <?php
 /* Template Name: mailRequest */
+$formName = $_POST['formName'];
 $fName = $_POST['fName'];
 $lName = $_POST['lName'];
 $busName = $_POST['busName'];
@@ -12,12 +13,9 @@ $comments = filter_var($_POST['comments'], FILTER_UNSAFE_RAW, 'FILTER_FLAG_HIGH'
 $to = 'zack@zackglaserlegal.com';
 $subject = 'Zack Glaser Legal Request';
 $from = $email;
-$message = "Name: " . $fName . " " . $lName . "\r\n Business: " . $busName . "\r\n Street: " . $street . "\r\n City, ST, Zip: " . $city . ", " . $state . ", " . $zip . "\r\n Comments: " . $comments;
+$message = "Form: " . $formName . "\r\n Name: " . $fName . " " . $lName . "\r\n Business: " . $busName . "\r\n Street: " . $street . "\r\n City, ST, Zip: " . $city . ", " . $state . ", " . $zip . "\r\n Comments: " . $comments;
 
-
-
-
-
+/* Start Page Template */
 get_header();
 $display_breadcrumb = 'yes';
 
