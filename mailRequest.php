@@ -1,5 +1,19 @@
 <?php
 /* Template Name: mailRequest */
+
+/*Check for required fields*/
+if ($_POST['email'] == '')  {
+  if ($_POST['formName'] == 'Startup') {
+    header("Location: /startup");
+    die();
+  } elseif ($_POST['formName'] == 'Logo') {
+    header("Location: /logo");
+    die();
+  } else {
+    header("Location: /index")
+  }
+}
+/*Gather and prepare POST variables from the forms*/
 $formName = $_POST['formName'];
 $fName = filter_var($_POST['fName'], FILTER_SANITIZE_STRING);
 $lName = filter_var($_POST['lName'], FILTER_SANITIZE_STRING);
