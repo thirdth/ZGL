@@ -18,10 +18,10 @@ $subject = "ZGL Req from: " . $fName . " " . $lName . " " . $busName;
 $from = $email;
 $message = " Form: " . $formName . "\r\n Name: " . $fName . " " . $lName . "\r\n Business: " . $busName . "\r\n Street: " . $street . "\r\n City, ST, Zip: " . $city . ", " . $state . ", " . $zip . "\r\n Comments: " . $comments;
 
-echo $formName;
 /*Check for required fields*/
 if ($_POST['email'] == '')  {
-  header("Location: " . untrailingslashit($formName) . "?error=1");
+  $url = $formName . "?error=1";
+  header("Location: " . $formName . "?error=1");
   die();
 }
 
@@ -30,7 +30,8 @@ if(isset($_POST['g-recaptcha-response'])) {
   $captcha=$_POST['g-recaptcha-response'];
 }
 if(!$captcha){
-  header("Location: " . untrailingslashit($formName) . "?error=2");
+  $url = $formName . "?error=2";
+  header("Location: " . $url);
   die();
 }
 
