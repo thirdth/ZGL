@@ -21,7 +21,7 @@ $message = " Form: " . $formName . "\r\n Name: " . $fName . " " . $lName . "\r\n
 /*Check for required fields*/
 if ($_POST['email'] == '')  {
   $url = $formName . "?error=1";
-  header("Location: " . $url);
+  header("Location: " . untrailingslashit($url);
   die();
 }
 
