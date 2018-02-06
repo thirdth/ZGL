@@ -108,7 +108,8 @@ $container_css .= 'padding-bottom:'.$padding_bottom.';';
                 <div class="entry-content">
                   <?php
                   if (mail ($to , $subject , $message, $from, '-fzack@zackglaserlegal.com')) {
-                            echo "<div class='col-md-12 text-center'>
+                            echo "<div class='col-md-2'></div>
+                                  <div class='col-md-8 text-center'>
                                     <h3>Thank you for your interest. Your request was sent successfully. Our office will contact you shortly to set-up a consultation.</h3>
                                      </div>";
                           } else {
