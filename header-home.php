@@ -38,7 +38,7 @@
 	$overlay_logo = onetone_option('overlay_logo');
 	$logo         = ( $overlay_logo == '' ) ? $logo : $overlay_logo;
   }
-  
+
   if (is_numeric($logo)) {
 	$image_attributes = wp_get_attachment_image_src($logo, 'full');
 	$logo       = $image_attributes[0];
@@ -51,27 +51,27 @@
 	$image_attributes = wp_get_attachment_image_src($overlay_logo, 'full');
 	$overlay_logo       = $image_attributes[0];
 	}
-  
+
   //sticky
   $enable_sticky_header         = onetone_option('enable_sticky_header','yes');
   $enable_sticky_header_tablets = onetone_option('enable_sticky_header_tablets','yes');
   $enable_sticky_header_mobiles = onetone_option('enable_sticky_header_mobiles','yes');
-   
+
  if(isset($page_meta['nav_menu']) && $page_meta['nav_menu'] !='')
 	 $theme_location = $page_meta['nav_menu'];
  else
  	$theme_location = 'primary';
- 
+
  $header_container = 'container';
- 
+
  if( $header_fullwidth == 1)
 	 $header_container = 'container-fluid';
- 
+
  $body_class  = '';
- 
+
  if(is_home() || is_front_page() )
  	$body_class  = 'page homepage';
- 
+
  $body_class  .= ' onetone';
  $header_image = get_header_image();
 ?>
@@ -87,7 +87,7 @@
                 <div class="top-bar">
                     <div class="<?php echo $header_container; ?>">
                         <div class="top-bar-left">
-                            <?php onetone_get_topbar_content( $top_bar_left_content );?>                      
+                            <?php onetone_get_topbar_content( $top_bar_left_content );?>
                         </div>
                         <div class="top-bar-right">
                           <?php onetone_get_topbar_content( $top_bar_right_content );?>
@@ -95,17 +95,17 @@
                     </div>
                 </div>
                  <?php endif;?>
-                
+
                 <div class="main-header <?php echo $header_background_parallax; ?>">
                     <div class="<?php echo $header_container; ?>">
                         <div class="logo-box">
                         <?php if( $logo ):?>
-                        
+
                             <a href="<?php echo esc_url(home_url('/')); ?>">
                             <img class="site-logo normal_logo" alt="<?php bloginfo('name'); ?>" src="<?php echo esc_url($logo); ?>" />
                             </a>
                              <?php
-							
+
 					if( $logo_retina ):
 					$pixels ="";
 					if(is_numeric(onetone_option('retina_logo_width')) && is_numeric(onetone_option('retina_logo_height'))):
@@ -120,9 +120,9 @@
                                 <a href="<?php echo esc_url(home_url('/')); ?>"><h1 class="site-name"><?php bloginfo('name'); ?></h1></a>
                                 <span class="site-tagline"><?php bloginfo('description'); ?></span>
                             </div>
-                             
+
                         </div>
-                        
+
                         <button class="site-nav-toggle">
                             <span class="sr-only"><?php _e( 'Toggle navigation', 'onetone' );?></span>
                             <i class="fa fa-bars fa-2x"></i>
@@ -132,27 +132,27 @@
 
 							  $onepage_menu      = '';
 							  $onepage_side_menu = '';
-							  
+
 							  $new_homepage_section = array();
 							  // order
 							  $home_sections = onetone_option('section_order');
-							  
+
 							  if( $home_sections !='' && count($home_sections)>0 ){
 									  $new_homepage_section = $home_sections;
 								}else{
 									  $new_homepage_section = $onetone_home_sections;
 							  }
-												
+
 							  $i = 0 ;
 							  foreach( $new_homepage_section as $section ):
-	
+
 								  $onetone_section_id = $section['id'];
 								  $section_part       = $section['type'];
-							  
+
 								  $hide_section  = onetone_option( 'section_hide_'.$onetone_section_id );
-								  
+
 								  if( $hide_section != '1' && $hide_section != 'on' ){
-								  
+
 									  $section_menu = onetone_option( 'menu_title_'.$onetone_section_id );
 									  $section_slug = onetone_option( 'menu_slug_'.$onetone_section_id );
 									  $section_slug = $section_slug==''? 'section-'.$onetone_section_id:$section_slug;
@@ -160,11 +160,11 @@
 									  if( $section_menu != '' ){
 										   $onepage_menu    .= '<li class="onetone-menuitem"><a id="onetone-'.$section_slug.'" class="menu_title_'.$onetone_section_id.'" href="#'.strtolower($section_slug).'" >
 										 <span>'.$section_menu.'</span></a></li>';
-										 
+
 										   $onepage_side_menu .= '<li class="onetone-menuitem"><a href="#'.strtolower($section_slug).'" ><span>'.$section_menu.'</span></a></li>';
-									 
+
 									  }
-								 
+
 								  }
 								  $i++;
 							  endforeach;
@@ -180,15 +180,15 @@
                         </nav>
                     </div>
                 </div>
-                
+
             <?php if( (!$detect->isTablet() && !$detect->isMobile() && $enable_sticky_header == 'yes') || ( $detect->isTablet() && $enable_sticky_header_tablets == 'yes' ) || ( $detect->isMobile() && !$detect->isTablet() && $enable_sticky_header_mobiles == 'yes' )  ):?>
-            
+
                 <div class="fxd-header">
                     <div class="<?php echo $header_container; ?>">
                         <div class="logo-box">
                         <?php if( $sticky_logo ):?>
                             <a href="<?php echo esc_url(home_url('/')); ?>"><img class="site-logo normal_logo" src="<?php echo esc_url($sticky_logo); ?>"></a>
-                            
+
                                <?php
 					if( $sticky_logo_retina ):
 					$pixels ="";
@@ -197,13 +197,13 @@
 					endif; ?>
 					<a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo $sticky_logo_retina; ?>" alt="<?php bloginfo('name'); ?>" style="width:<?php echo onetone_option('sticky_logo_width_for_retina_logo').$pixels; ?>;max-height:<?php echo onetone_option('sticky_logo_height_for_retina_logo').$pixels; ?>; height: auto !important" class="site-logo retina_logo" /></a>
 					<?php endif; ?>
-                    
+
                            <?php endif;?>
                             <div class="name-box" style=" display:block;">
                                 <a href="<?php echo esc_url(home_url('/')); ?>"><h1 class="site-name"><?php bloginfo('name'); ?></h1></a>
                                 <span class="site-tagline"><?php bloginfo('description'); ?></span>
                             </div>
-                            
+
                         </div>
                         <button class="site-nav-toggle">
                             <span class="sr-only"><?php _e( 'Toggle navigation', 'onetone' );?></span>
@@ -223,11 +223,11 @@
                         </nav>
                     </div>
                 </div>
-                
+
              <?php endif; ?>
-             
+
             </header>
-            <?php 
+            <?php
 			$enable_side_nav = onetone_option( 'enable_side_nav' );
 			if( $enable_side_nav == '1' || $enable_side_nav == 'on' ):
 			?>

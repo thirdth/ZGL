@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link rel="stylesheet" id="font-awesome-css" href="http://www.zackglaserlegal.com/wp-content/themes/onetone/plugins/font-awesome/css/font-awesome.min.css?ver=4.3.0" type="text/css" media="">
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 <?php wp_head(); ?>
 </head>
