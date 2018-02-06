@@ -22,16 +22,15 @@ $message = " Form: " . $formName . "\r\n Name: " . $fName . " " . $lName . "\r\n
 if ($_POST['email'] == '')  {
   header("Location: /" . $formName);
   die();
-  /*
-  if ($_POST['formName'] == 'Startup') {
-    header("Location: /startup");
-    die();
-  } elseif ($_POST['formName'] == 'Logo') {
-    header("Location: /logo");
-    die();
-  } else {
-    header("Location: /index");
-  }*/
+}
+
+/*Check for CAPTCHA*/
+if(isset($_POST['g-recaptcha-response'])) {
+  $captcha=$_POST['g-recaptcha-response'];
+}
+if(!$captcha){
+  header("Location: /" . $formName);
+  die();
 }
 
 /* Start Page Template */
