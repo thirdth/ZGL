@@ -11,7 +11,7 @@
 </head>
 <?php
 
-  global  $page_meta,;
+  global  $page_meta;
   $detect                      = new Mobile_Detect;
   $display_top_bar             = onetone_option('display_top_bar');
   $header_background_parallax  = onetone_option('header_background_parallax');
