@@ -3,6 +3,9 @@
 
 /*Check for required fields*/
 if ($_POST['email'] == '')  {
+  header("Location: /" . $formName);
+  die();
+  /*
   if ($_POST['formName'] == 'Startup') {
     header("Location: /startup");
     die();
@@ -11,7 +14,7 @@ if ($_POST['email'] == '')  {
     die();
   } else {
     header("Location: /index");
-  }
+  }*/
 }
 /*Gather and prepare POST variables from the forms*/
 $formName = $_POST['formName'];
