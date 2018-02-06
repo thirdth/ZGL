@@ -11,9 +11,9 @@
 </head>
 <?php
 
-  global  $page_meta, $onetone_home_sections;
+  global  $page_meta,;
   $detect                      = new Mobile_Detect;
-  $display_top_bar             = onetone_option('display_top_bar', 'yes');
+  $display_top_bar             = onetone_option('display_top_bar');
   $header_background_parallax  = onetone_option('header_background_parallax');
   $header_top_padding          = onetone_option('header_top_padding');
   $header_bottom_padding       = onetone_option('header_bottom_padding');
