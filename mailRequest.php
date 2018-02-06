@@ -18,6 +18,7 @@ $subject = "ZGL Req from: " . $fName . " " . $lName . " " . $busName;
 $from = $email;
 $message = " Form: " . $formName . "\r\n Name: " . $fName . " " . $lName . "\r\n Business: " . $busName . "\r\n Street: " . $street . "\r\n City, ST, Zip: " . $city . ", " . $state . ", " . $zip . "\r\n Comments: " . $comments;
 
+echo $formName;
 /*Check for required fields*/
 if ($_POST['email'] == '')  {
   header("Location: " . untrailingslashit($formName) . "?error=1");
