@@ -20,7 +20,7 @@ $message = " Form: " . $formName . "\r\n Name: " . $fName . " " . $lName . "\r\n
 
 /*Check for required fields*/
 if ($_POST['email'] == '')  {
-  header("Location: /" . $formName);
+  header("Location: /" . $formName . "?error=1");
   die();
 }
 
@@ -29,7 +29,7 @@ if(isset($_POST['g-recaptcha-response'])) {
   $captcha=$_POST['g-recaptcha-response'];
 }
 if(!$captcha){
-  header("Location: /" . $formName);
+  header("Location: /" . $formName . "?error=2");
   die();
 }
 
