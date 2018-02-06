@@ -5,7 +5,7 @@
  * @package onetone
  */
 
-get_header(); 
+get_header();
 $display_breadcrumb = 'yes';
 
 
@@ -22,7 +22,7 @@ if( $full_width  == 'no' )
  $container = 'container';
 else
  $container = 'container-fullwidth';
- 
+
 $aside          = 'no-aside';
 if( $sidebar =='left' )
 $aside          = 'left-aside';
@@ -57,9 +57,9 @@ $container_css .= 'padding-bottom:'.$padding_bottom.';';
       <div class="clearfix"></div>
     </div>
   </section>
- 
+
   <?php endif;?>
-  
+
   <div class="post-wrap">
     <div class="<?php echo $container;?>">
       <div class="post-inner row <?php echo $aside; ?>" style=" <?php echo $container_css;?>">
@@ -75,14 +75,23 @@ $container_css .= 'padding-bottom:'.$padding_bottom.';';
               </div>
               <?php endif;?>
               <div class="entry-main">
-            
+
                 <div class="entry-content">
+                  <?php
+                    $errorNum = $_POST['error'];
+                    if ($errorNum == 1) {
+                      echo '<p class="danger">Please fill out the required fields</p>';
+                    } else {
+                      echo '<p class="danger">Please confirm that you are not a robot';
+                    }
+
+                   ?>
                   <?php the_content();?>
                   <?php
 				wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'onetone' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) );
 				?>
                 </div>
-                
+
               </div>
             </article>
             <div class="post-attributes">
