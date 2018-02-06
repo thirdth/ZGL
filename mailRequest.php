@@ -1,21 +1,7 @@
 <?php
 /* Template Name: mailRequest */
 
-/*Check for required fields*/
-if ($_POST['email'] == '')  {
-  header("Location: /" . $formName);
-  die();
-  /*
-  if ($_POST['formName'] == 'Startup') {
-    header("Location: /startup");
-    die();
-  } elseif ($_POST['formName'] == 'Logo') {
-    header("Location: /logo");
-    die();
-  } else {
-    header("Location: /index");
-  }*/
-}
+
 /*Gather and prepare POST variables from the forms*/
 $formName = $_POST['formName'];
 $fName = filter_var($_POST['fName'], FILTER_SANITIZE_STRING);
@@ -31,6 +17,22 @@ $to = 'zack@zackglaserlegal.com';
 $subject = "ZGL Req from: " . $fName . " " . $lName . " " . $busName;
 $from = $email;
 $message = " Form: " . $formName . "\r\n Name: " . $fName . " " . $lName . "\r\n Business: " . $busName . "\r\n Street: " . $street . "\r\n City, ST, Zip: " . $city . ", " . $state . ", " . $zip . "\r\n Comments: " . $comments;
+
+/*Check for required fields*/
+if ($_POST['email'] == '')  {
+  header("Location: /" . $formName);
+  die();
+  /*
+  if ($_POST['formName'] == 'Startup') {
+    header("Location: /startup");
+    die();
+  } elseif ($_POST['formName'] == 'Logo') {
+    header("Location: /logo");
+    die();
+  } else {
+    header("Location: /index");
+  }*/
+}
 
 /* Start Page Template */
 get_header();
