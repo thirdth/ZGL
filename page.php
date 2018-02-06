@@ -78,7 +78,7 @@ $container_css .= 'padding-bottom:'.$padding_bottom.';';
 
                 <div class="entry-content">
                   <?php
-                    $errorNum = $_POST['error'];
+                    $errorNum = $_GET['error'];
                     if ($errorNum === 1) {
                       echo '<p class="danger">Please fill out the required fields</p>';
                     } else {
