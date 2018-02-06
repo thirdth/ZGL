@@ -1,19 +1,19 @@
 <?php
 /* Template Name: mailRequest */
 $formName = $_POST['formName'];
-$fName = $_POST['fName'];
-$lName = $_POST['lName'];
-$busName = $_POST['busName'];
+$fName = filter_var($_POST['fName'], FILTER_SANITIZE_STRING);
+$lName = filter_var($_POST['lName'], FILTER_SANITIZE_STRING);
+$busName = filter_var($_POST['busName'], FILTER_SANITIZE_STRING);
 $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-$street = $_POST['street'];
-$city = $_POST['city'];
-$state = $_POST['state'];
-$zip = $_POST['zip'];
+$street = filter_var($_POST['street'], FILTER_SANITIZE_STRING);
+$city = filter_var($_POST['city'], FILTER_SANITIZE_STRING);
+$state = filter_var($_POST['state'], FILTER_SANITIZE_STRING);
+$zip = filter_var($_POST['zip'], FILTER_SANITIZE_STRING);
 $comments = filter_var($_POST['comments'], FILTER_UNSAFE_RAW, 'FILTER_FLAG_HIGH');
 $to = 'zack@zackglaserlegal.com';
-$subject = 'Zack Glaser Legal Request';
+$subject = "ZGL Req from: " . $fName . " " . $lName . " " . $busName;
 $from = $email;
-$message = "Form: " . $formName . "\r\n Name: " . $fName . " " . $lName . "\r\n Business: " . $busName . "\r\n Street: " . $street . "\r\n City, ST, Zip: " . $city . ", " . $state . ", " . $zip . "\r\n Comments: " . $comments;
+$message = " Form: " . $formName . "\r\n Name: " . $fName . " " . $lName . "\r\n Business: " . $busName . "\r\n Street: " . $street . "\r\n City, ST, Zip: " . $city . ", " . $state . ", " . $zip . "\r\n Comments: " . $comments;
 
 /* Start Page Template */
 get_header();
