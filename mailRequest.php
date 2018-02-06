@@ -10,7 +10,7 @@ if ($_POST['email'] == '')  {
     header("Location: /logo");
     die();
   } else {
-    header("Location: /index")
+    header("Location: /index");
   }
 }
 /*Gather and prepare POST variables from the forms*/
